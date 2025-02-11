@@ -73,9 +73,15 @@ body, html {
 }
 
 a {
-  @apply transition-colors duration-200;
+  transition: color 0.2s; /* Directly apply transition */
 }
 
 button {
-  @apply transition-colors duration-200;
+  background-color: #3490dc; /* Example color */
+  color: white; /* Example text color */
+  transition: background-color 0.2s ease; /* Transition effect */
+}
+
+button:hover {
+  background-color: #2779bd; /* Darker shade on hover */
 } 
