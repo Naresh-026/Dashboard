@@ -7,3 +7,9 @@ export interface Service {
   logoUrl?: string;
   icon?: string;
 }
+
+export interface SystemMetrics {
+  cpu: number;
+  memory: number;
+  uptime: string;
+}

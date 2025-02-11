@@ -55,7 +55,8 @@ export default function ServiceCard({ service, onRemove, onEdit }: ServiceCardPr
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.05, boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)' }}
+      transition={{ duration: 0.3 }}
       className="service-card backdrop-blur-lg rounded-xl shadow-lg relative group
         aspect-square max-w-[300px] w-full mx-auto glow cursor-pointer bg-gray-800/50"
       onClick={handleCardClick}
