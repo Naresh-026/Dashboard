@@ -1,5 +1,3 @@
-// This file can be deleted if we're managing services through useServices hook
-
 import { Service } from '@/types';
 
 export const services: Service[] = [

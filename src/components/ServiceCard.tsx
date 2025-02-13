@@ -55,10 +55,9 @@ export default function ServiceCard({ service, onRemove, onEdit }: ServiceCardPr
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.05, boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)' }}
-      transition={{ duration: 0.3 }}
+      whileHover={{ scale: 1.02 }}
       className="service-card backdrop-blur-lg rounded-xl shadow-lg relative group
-        aspect-square max-w-[300px] w-full mx-auto glow cursor-pointer bg-gray-800/50"
+        aspect-square max-w-[300px] w-full mx-auto glow cursor-pointer"
       onClick={handleCardClick}
     >
       {isEditing ? (
@@ -67,24 +66,24 @@ export default function ServiceCard({ service, onRemove, onEdit }: ServiceCardPr
             type="text"
             value={editedService.name}
             onChange={(e) => setEditedService({ ...editedService, name: e.target.value })}
-            className="w-full px-2 py-1 text-sm rounded-md border border-gray-600 bg-gray-900 text-gray-100"
+            className="w-full px-2 py-1 text-sm rounded-md border border-gray-300 dark:border-gray-600"
           />
           <input
             type="text"
             value={editedService.description || ''}
             onChange={(e) => setEditedService({ ...editedService, description: e.target.value })}
             placeholder="Description"
-            className="w-full px-2 py-1 text-sm rounded-md border border-gray-600 bg-gray-900 text-gray-100"
+            className="w-full px-2 py-1 text-sm rounded-md border border-gray-300 dark:border-gray-600"
           />
           <input
             type="url"
             value={editedService.logoUrl || ''}
             onChange={(e) => setEditedService({ ...editedService, logoUrl: e.target.value })}
             placeholder="Logo URL"
-            className="w-full px-2 py-1 text-sm rounded-md border border-gray-600 bg-gray-900 text-gray-100"
+            className="w-full px-2 py-1 text-sm rounded-md border border-gray-300 dark:border-gray-600"
           />
           <div className="flex justify-end gap-2">
-            <button onClick={handleCancel} className="px-2 py-1 text-xs text-gray-400">
+            <button onClick={handleCancel} className="px-2 py-1 text-xs text-gray-600">
               Cancel
             </button>
             <button onClick={handleSave} className="px-2 py-1 text-xs bg-blue-500 text-white rounded">
@@ -99,14 +98,14 @@ export default function ServiceCard({ service, onRemove, onEdit }: ServiceCardPr
               src={logoError ? defaultLogo : (service.logoUrl || defaultLogo)}
               onError={() => setLogoError(true)}
               alt={`${service.name} logo`}
-              className="w-24 h-24 rounded-lg object-contain bg-gray-800/70 p-2"
+              className="w-24 h-24 rounded-lg object-contain bg-white/50 p-2"
             />
             <div>
-              <h3 className="font-semibold text-gray-100 text-lg truncate max-w-[220px]">
+              <h3 className="font-semibold text-gray-800 dark:text-white text-lg truncate max-w-[220px]">
                 {service.name}
               </h3>
               {service.description && (
-                <p className="text-sm text-gray-300 line-clamp-2 mt-1">
+                <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 mt-1">
                   {service.description}
                 </p>
               )}
@@ -118,7 +117,7 @@ export default function ServiceCard({ service, onRemove, onEdit }: ServiceCardPr
               e.stopPropagation();
               setIsEditing(true);
             }}
-            className="opacity-0 group-hover:opacity-100 absolute top-1.5 right-6 text-blue-400"
+            className="opacity-0 group-hover:opacity-100 absolute top-1.5 right-6 text-blue-500"
           >
             <Icons.PencilIcon className="w-3.5 h-3.5" />
           </button>
@@ -128,7 +127,7 @@ export default function ServiceCard({ service, onRemove, onEdit }: ServiceCardPr
               onRemove();
             }}
             className="opacity-0 group-hover:opacity-100 absolute top-1.5 right-1.5 
-              text-red-400 hover:text-red-300"
+              text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300"
           >
             <Icons.TrashIcon className="w-3.5 h-3.5" />
           </button>

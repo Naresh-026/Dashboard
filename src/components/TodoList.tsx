@@ -75,9 +75,9 @@ export default function TodoList() {
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
           placeholder="Add a new task..."
-          className="flex-1 px-3 py-1.5 text-sm rounded-lg border border-gray-700 
-            bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-blue-500
-            text-white placeholder-gray-500"
+          className="flex-1 px-3 py-1.5 text-sm rounded-lg border border-gray-200 dark:border-gray-700 
+            bg-white/50 dark:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-blue-500
+            text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
         />
         <button
           type="submit"
@@ -88,7 +88,7 @@ export default function TodoList() {
         </button>
       </form>
 
-      <div className="space-y-1.5">
+      <div className="space-y-1.5 overflow-y-auto max-h-[100px]">
         <AnimatePresence>
           {todos.map(todo => (
             <motion.div
@@ -96,25 +96,30 @@ export default function TodoList() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, x: -100 }}
-              className="flex items-center gap-2 p-2 bg-gradient-to-r from-gray-800/50 to-blue-900/40 
-                rounded-lg group text-sm hover:from-gray-800/60 hover:to-blue-900/50 
-                transition-all duration-200 shadow-sm hover:shadow border border-white/5"
+              className="flex items-center gap-2 p-2 bg-gradient-to-r from-white/40 to-blue-100/40 
+                dark:from-gray-800/40 dark:to-blue-900/30 rounded-lg group text-sm
+                hover:from-white/50 hover:to-blue-200/50 dark:hover:from-gray-800/50 
+                dark:hover:to-blue-900/40 transition-all duration-200 shadow-sm hover:shadow
+                border border-white/10 dark:border-white/5"
             >
               <button
                 onClick={() => toggleTodo(todo.id)}
                 className={`w-4 h-4 rounded-full border-2 flex items-center justify-center
-                  ${todo.completed ? 'border-green-500 bg-green-500' : 'border-gray-500'}`}
+                  ${todo.completed 
+                    ? 'border-green-500 bg-green-500' 
+                    : 'border-gray-300 dark:border-gray-500'
+                  }`}
               >
                 {todo.completed && <CheckIcon className="w-2 h-2 text-white" />}
               </button>
-              <span className={`flex-1 text-gray-100
-                ${todo.completed ? 'line-through text-gray-500' : ''}`}>
+              <span className={`flex-1 text-gray-800 dark:text-gray-200
+                ${todo.completed ? 'line-through text-gray-400 dark:text-gray-500' : ''}`}>
                 {todo.text}
               </span>
               <button
                 onClick={() => removeTodo(todo.id)}
-                className="opacity-0 group-hover:opacity-100 text-red-400 hover:text-red-300
-                  transition-opacity duration-200"
+                className="opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-600
+                  dark:text-red-400 dark:hover:text-red-300 transition-opacity duration-200"
               >
                 <TrashIcon className="w-4 h-4" />
               </button>

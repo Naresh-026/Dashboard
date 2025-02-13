@@ -16,17 +16,17 @@ export default function CollapsiblePanel({ title, children }: CollapsiblePanelPr
     <motion.div
       animate={{ height: isExpanded ? 'auto' : '48px' }}
       className="gradient-animate backdrop-blur-lg rounded-xl shadow-lg overflow-hidden
-        border border-gray-700/30 glow bg-gray-800/50"
+        border border-white/20 dark:border-gray-700/30 glow"
     >
       <div 
         className={`p-4 ${!isExpanded ? 'pb-0' : ''}`}
         style={{ height: isExpanded ? 'auto' : '48px' }}
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-gray-100">{title}</h2>
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white">{title}</h2>
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-gray-300 hover:text-white"
+            className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
           >
             {isExpanded ? (
               <ChevronUpIcon className="w-4 h-4" />

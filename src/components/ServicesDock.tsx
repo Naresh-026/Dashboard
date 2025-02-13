@@ -53,8 +53,8 @@ export default function ServicesDock({ services, onRemove, onEdit, onAdd }: Serv
           ref={scrollRef}
           className="flex flex-wrap gap-6 justify-center items-center min-h-[350px]"
         >
-          {services.map((service, index) => {
-            const distance = mouseX - (index * 308 + 154);
+          {services.map((service) => {
+            const distance = mouseX - (service.id.charCodeAt(0) * 308 + 154);
             const scale = Math.max(1, 1 - Math.abs(distance) / 600);
             
             return (

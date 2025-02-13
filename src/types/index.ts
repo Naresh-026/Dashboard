@@ -4,8 +4,8 @@ export interface Service {
   description?: string;
   url: string;
   port?: number;
-  logoUrl?: string;
   icon?: string;
+  logoUrl?: string;
 }
 
 export interface SystemMetrics {

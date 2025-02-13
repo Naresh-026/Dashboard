@@ -23,19 +23,23 @@ export default function Weather() {
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-gray-800/50 backdrop-blur-lg rounded-xl p-6 shadow-lg"
+      className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg rounded-xl p-6 shadow-lg"
     >
       <div className="flex items-center gap-4">
         {mockWeather.condition.toLowerCase().includes('cloud') ? (
-          <CloudIcon className="h-12 w-12 text-gray-400" />
+          <CloudIcon className="h-12 w-12 text-gray-600 dark:text-gray-400" />
         ) : (
           <SunIcon className="h-12 w-12 text-yellow-500" />
         )}
         <div>
-          <div className="text-gray-100">
-            <h2 className="text-2xl font-bold">{mockWeather.temp}°C</h2>
-            <p className="text-gray-300">{mockWeather.condition}</p>
-            <p className="text-sm text-gray-400">{mockWeather.location}</p>
+          <div className="text-3xl font-bold text-gray-800 dark:text-white">
+            {mockWeather.temp}°C
+          </div>
+          <div className="text-gray-600 dark:text-gray-300">
+            {mockWeather.condition}
+          </div>
+          <div className="text-sm text-gray-500 dark:text-gray-400">
+            {mockWeather.location}
           </div>
         </div>
       </div>

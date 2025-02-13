@@ -5,6 +5,7 @@ import SystemStats from './SystemStats';
 import ServiceCard from './ServiceCard';
 import Clock from './Clock';
 import Weather from './Weather';
+import ThemeToggle from './ThemeToggle';
 import AddServiceModal from './AddServiceModal';
 import TodoList from './TodoList';
 import { Service } from '@/types';
@@ -13,7 +14,6 @@ import { useServices } from '@/hooks/useServices';
 import CollapsiblePanel from './CollapsiblePanel';
 import ProfileSection from './ProfileSection';
 import ServicesDock from './ServicesDock';
-import SettingsButton from './SettingsButton';
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,9 +21,10 @@ export default function Dashboard() {
   const [isTodoExpanded, setIsTodoExpanded] = useState(true);
 
   return (
-    <div className="min-h-screen dashboard-bg py-2 transition-colors duration-200">
+    <div className="min-h-screen dashboard-bg py-4 transition-colors duration-200">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col gap-4">
+        <ThemeToggle />
+        <div className="flex flex-col gap-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
             <div className="scale-75 origin-left">
               <Clock />
@@ -37,26 +38,25 @@ export default function Dashboard() {
           {/* System Info Row */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <CollapsiblePanel title="System Status">
-              <div className="max-h-[120px] overflow-y-auto">
+              <div className="max-h-[150px] overflow-y-auto">
                 <SystemStats />
               </div>
             </CollapsiblePanel>
 
             <CollapsiblePanel title="Tasks">
-              <div className="max-h-[120px] overflow-y-auto">
-                <TodoList />
-              </div>
+              <TodoList />
             </CollapsiblePanel>
 
             <CollapsiblePanel title="Coming Soon">
-              <p className="text-gray-300">
+              <p className="text-gray-600 dark:text-gray-300">
                 Future feature placeholder
               </p>
             </CollapsiblePanel>
           </div>
 
           {/* Services Section */}
-          <div className="rounded-xl mt-2">
+          <div className="rounded-xl">
+            <h2 className="text-lg font-bold text-gray-800 dark:text-white p-2">Services</h2>
             <ServicesDock
               services={services}
               onRemove={removeService}
@@ -72,8 +72,6 @@ export default function Dashboard() {
         onClose={() => setIsModalOpen(false)}
         onAdd={addService}
       />
-
-      <SettingsButton />
     </div>
   );
 } 

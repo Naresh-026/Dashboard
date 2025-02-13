@@ -31,27 +31,27 @@ export default function SystemStats() {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       <Card 
         decoration="top" 
-        decorationColor="blue" 
-        className="transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+        decorationColor="blue"
+        className="bg-white/70 dark:bg-gray-800/70 shadow-md"
       >
-        <Text>CPU Usage</Text>
-        <Metric>{metrics.cpu}%</Metric>
+        <Text className="text-gray-600 dark:text-gray-300">CPU Usage</Text>
+        <Metric className="text-gray-800 dark:text-white">{metrics.cpu}%</Metric>
       </Card>
       <Card 
         decoration="top" 
-        decorationColor="green" 
-        className="transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+        decorationColor="green"
+        className="bg-white/70 dark:bg-gray-800/70 shadow-md"
       >
-        <Text>Memory Usage</Text>
-        <Metric>{metrics.memory}%</Metric>
+        <Text className="text-gray-600 dark:text-gray-300">Memory Usage</Text>
+        <Metric className="text-gray-800 dark:text-white">{metrics.memory}%</Metric>
       </Card>
       <Card 
         decoration="top" 
-        decorationColor="orange" 
-        className="transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+        decorationColor="orange"
+        className="bg-white/70 dark:bg-gray-800/70 shadow-md"
       >
-        <Text>Uptime</Text>
-        <Metric>{metrics.uptime}</Metric>
+        <Text className="text-gray-600 dark:text-gray-300">Uptime</Text>
+        <Metric className="text-gray-800 dark:text-white">{metrics.uptime}</Metric>
       </Card>
     </div>
   );

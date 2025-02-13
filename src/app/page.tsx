@@ -1,3 +1,4 @@
+import React from 'react';
 import Dashboard from '@/components/Dashboard';
 import { Metadata } from 'next';
 
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <Dashboard />;
+  return (
+    <main className="min-h-screen bg-gray-50">
+      <Dashboard />
+    </main>
+  );
 } 

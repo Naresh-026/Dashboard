@@ -1,1 +1,6 @@
-{}
+{
+  "/api/metrics/route": "app/api/metrics/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/check-status/route": "app/api/check-status/route.js",
+  "/page": "app/page.js"
+}
